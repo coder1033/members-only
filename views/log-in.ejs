@@ -3,10 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1>Please Log In</h1>
     <form action="" method="POST">
+      <% if (errors.length) { %>
+        <ul class="alert alert-danger">
+          <% errors.forEach( error => { %>
+            <li class='mb-0'><%= error %></li>
+          <% }) %>
+        </ul>
+      <% } %>
       <label for="username">Username</label>
       <input name="username" placeholder="username" type="text" />
       <label for="password">Password</label>
