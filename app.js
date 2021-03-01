@@ -2,6 +2,7 @@
 const cookieParser = require("cookie-parser");
 const createError = require("http-errors");
 const express = require("express");
+const flash = require('connect-flash');
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -50,6 +51,9 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+// flash messages
+app.use(flash());
 
 // Access to the current user to all the views
 app.use(function (req, res, next) {

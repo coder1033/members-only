@@ -57,7 +57,8 @@ router.post("/sign-up", sign_up_validator.sign_up, function (req, res, next) {
 });
 
 router.get("/log-in", function (req, res, next) {
-  res.render("log-in", { title: "Log In" });
+  const errors = req.flash("error");
+  res.render("log-in", { title: "Log In", errors });
 });
 
 router.post(
@@ -65,7 +66,7 @@ router.post(
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "log-in",
-    failureFlash: false,
+    failureFlash: true,
   })
 );
 
