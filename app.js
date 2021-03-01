@@ -3,9 +3,13 @@ const cookieParser = require("cookie-parser");
 const createError = require("http-errors");
 const express = require("express");
 const logger = require("morgan");
-const MongoStore = require("connect-mongo")(session);
+const mongoose = require("mongoose");
+const passport = require("passport");
 const path = require("path");
 const session = require("express-session");
+
+// store sessions
+const MongoStore = require("connect-mongo")(session);
 
 // local imports
 const indexRouter = require("./routes/index");
