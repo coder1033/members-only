@@ -17,4 +17,8 @@ router.post(
   message_controller.message_create_post
 );
 
+router.get("/delete-message/:id", message_controller.message_delete_get);
+
+router.post("/delete-message/:id", message_controller.message_delete_post);
+
 module.exports = router;

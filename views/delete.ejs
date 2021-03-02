@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <% if(!currentUser.admin) { %>
+    <h3>You don't have an Admin access</h3>
+    <% } else { %>
+
+    <form action="" method="POST">
+      <p>Are you sure?</p>
+      <button>Delete</button>
+      <a href="/">Cancel</a>
+    </form>
+    <% } %>
+  </body>
+</html>

@@ -11,7 +11,7 @@
       <% if (!currentUser.membership) { %>
         <a href="/membership">Become a Member</a>
       <% } else if (!currentUser.admin) { %>
-        <a href="#">Become a Admin</a>
+        <a href="/admin">Become an Admin</a>
       <% } %>
       <a href="/messages/create-message">Create Post</a>
       <a href="/auth/log-out">Log Out</a>
@@ -41,7 +41,7 @@
             </div>
           <% } %>
           <% if(currentUser && currentUser.admin) { %>
-            <a href="#">Delete</a>
+            <a href="/messages/delete-message/<%= message.id%>">Delete</a>
           <% } %>
         </div>
       <% } %>

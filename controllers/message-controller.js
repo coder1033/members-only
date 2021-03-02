@@ -39,3 +39,20 @@ exports.message_create_post = function (req, res, next) {
     res.redirect("/");
   });
 };
+
+exports.message_delete_get = function (req, res, next) {
+  const user = req.user;
+  if (!user) {
+    res.redirect("/auth/log-in");
+  }
+  res.render("delete", { title: "Delete Message" });
+};
+exports.message_delete_post = function (req, res, next) {
+  const { id } = req.params;
+  Message.findByIdAndRemove(id, function deleteMessage(err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+};
