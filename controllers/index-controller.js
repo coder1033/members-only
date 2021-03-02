@@ -50,7 +50,7 @@ exports.admin_get = function (req, res, next) {
   if (!user) {
     res.redirect("/auth/log-in");
   } else if (!user.membership) {
-    res.redirect("/membership")
+    res.redirect("/membership");
   }
   res.render("admin", { title: "Admin" });
 };

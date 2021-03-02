@@ -3,25 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <h1>Get a Membership</h1>
     <% if(currentUser.membership) { %>
-      <h3>You're already a member</h3>
+    <h3>You're already a member</h3>
     <% } else { %>
-      <form action="" method="POST">
-        <% if (locals.errors) { %>
-          <ul class="alert alert-danger">
-            <% errors.forEach( error => { %>
-              <li class='mb-0'><%= error %></li>
-            <% }) %>
-          </ul>
-        <% } %>
-        <label for="membership_passcode">Enter Membership Passcode</label>
-        <input name="membership_passcode" type="password" />
-        <button>Submit</button>
-      </form>
+    <form action="" method="POST">
+      <% if (locals.errors) { %>
+      <ul class="alert alert-danger">
+        <% errors.forEach( error => { %>
+        <li class="mb-0"><%= error %></li>
+        <% }) %>
+      </ul>
+      <% } %>
+      <label for="membership_passcode">Enter Membership Passcode</label>
+      <input name="membership_passcode" type="password" />
+      <button>Submit</button>
+    </form>
     <% } %>
   </body>
 </html>

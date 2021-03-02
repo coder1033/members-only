@@ -2,7 +2,7 @@
 const cookieParser = require("cookie-parser");
 const createError = require("http-errors");
 const express = require("express");
-const flash = require('connect-flash');
+const flash = require("connect-flash");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -14,7 +14,6 @@ const MongoStore = require("connect-mongo")(session);
 
 // local imports
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 
 // environment variables
 require("dotenv").config();
@@ -63,7 +62,6 @@ app.use(function (req, res, next) {
 
 // Routes
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

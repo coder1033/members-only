@@ -3,25 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <h1>Get Admin Access</h1>
     <% if(currentUser.admin) { %>
-      <h3>You're already an admin</h3>
+    <h3>You're already an admin</h3>
     <% } else { %>
-      <form action="" method="POST">
-        <% if (locals.errors) { %>
-          <ul class="alert alert-danger">
-            <% errors.forEach( error => { %>
-              <li class='mb-0'><%= error %></li>
-            <% }) %>
-          </ul>
-        <% } %>
-        <label for="admin_passcode">Enter Admin Passcode</label>
-        <input name="admin_passcode" type="password" />
-        <button>Submit</button>
-      </form>
+    <form action="" method="POST">
+      <% if (locals.errors) { %>
+      <ul class="alert alert-danger">
+        <% errors.forEach( error => { %>
+        <li class="mb-0"><%= error %></li>
+        <% }) %>
+      </ul>
+      <% } %>
+      <label for="admin_passcode">Enter Admin Passcode</label>
+      <input name="admin_passcode" type="password" />
+      <button>Submit</button>
+    </form>
     <% } %>
   </body>
 </html>

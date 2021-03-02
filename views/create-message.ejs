@@ -3,25 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <h1>Create Post</h1>
     <form action="" method="POST">
       <% if (typeof errors != 'undefined') { %>
-        <ul class="alert alert-danger">
-          <% for(error of errors) { %>
-            <li class="mb-0"><%= error.msg %></li>
-          <% } %>
-        </ul>
+      <ul class="alert alert-danger">
+        <% for(error of errors) { %>
+        <li class="mb-0"><%= error.msg %></li>
+        <% } %>
+      </ul>
       <% } %>
       <div>
         <label for="title">Title</label>
-        <input name="title" placeholder="title" type="text" required value = "<%= locals.message? message.title : '' %>"/>
+        <input
+          name="title"
+          placeholder="title"
+          type="text"
+          required
+          value="<%= locals.message? message.title : '' %>"
+        />
       </div>
       <div>
         <label for="description">Description</label>
-        <textarea name="description" placeholder="description" type="text" required><%= locals.message ? message.description : '' %></textarea>
+        <textarea
+          name="description"
+          placeholder="description"
+          type="text"
+          required
+        >
+<%= locals.message ? message.description : '' %></textarea
+        >
       </div>
       <button>Post</button>
     </form>
