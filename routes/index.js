@@ -21,4 +21,8 @@ router.get("/membership", index_controller.membership_get);
 
 router.post("/membership", index_controller.membership_post);
 
+router.get("/admin", index_controller.admin_get);
+
+router.post("/admin", index_controller.admin_post);
+
 module.exports = router;
