@@ -1,7 +1,7 @@
 // npm imports
 const { body } = require("express-validator");
 
-exports.create_message = [
+exports.message_create = [
   // Validate and santise fields.
   body("title")
     .trim()
