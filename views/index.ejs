@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <% if (currentUser) { %>
+    <p>Welcome, <%= currentUser.username %></p>
+    <% if (!currentUser.membership) { %>
+    <a href="/membership">Become a Member</a>
+    <% } else if (!currentUser.admin) { %>
+    <a href="/admin">Become an Admin</a>
+    <% } %>
+    <a href="/messages/create-message">Create Post</a>
+    <a href="/auth/log-out">Log Out</a>
+    <% if (currentUser.admin) { %>
+    <p>Admin account</p>
+    <% } else if (currentUser.membership) { %>
+    <p>You're a Member</p>
+    <% } %> <% } else { %>
+    <p>Welcome to <%= title %></p>
+    <a href="/auth/log-in">Log In</a>
+    <a href="/auth/sign-up">Sign Up</a>
+    <% } %> <% if (messages) { %>
+    <h1>All Messages</h1>
+    <% for(message of messages) { %>
+    <hr />
+    <div>
+      <h3><%= message.title %></h3>
+      <p><%= message.description %></p>
+      <% if(currentUser && currentUser.membership) { %>
+      <div>
+        <small><%= currentUser.username %></small>
+      </div>
+      <div>
+        <small><%= message.createdAt %></small>
+      </div>
+      <% } %> <% if(currentUser && currentUser.admin) { %>
+      <a href="/messages/delete-message/<%= message.id%>">Delete</a>
+      <% } %>
+    </div>
+    <% } %> <% } %>
+  </body>
+</html>
